@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StorageLens</title>
+    <link rel="stylesheet" href="./panel.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="toolbar">
+        <div>
+          <h1>StorageLens</h1>
+          <p id="status-text">Connecting to inspected page…</p>
+        </div>
+        <button id="scan-button" type="button">Scan OPFS</button>
+      </header>
+
+      <section class="summary-grid" aria-label="Storage statistics summary">
+        <article class="summary-card">
+          <span class="label">Total files</span>
+          <strong id="total-files">0</strong>
+        </article>
+        <article class="summary-card">
+          <span class="label">Total size</span>
+          <strong id="total-size">0 B</strong>
+        </article>
+        <article class="summary-card accent">
+          <span class="label">Bandwidth saved</span>
+          <strong id="bandwidth-saved">0 B</strong>
+        </article>
+      </section>
+
+      <main class="content-grid">
+        <aside class="panel-section">
+          <div class="section-header">
+            <h2>OPFS Tree</h2>
+            <button id="refresh-button" class="secondary" type="button">
+              Refresh
+            </button>
+          </div>
+          <div id="tree-root" class="tree-root" aria-live="polite"></div>
+        </aside>
+
+        <section class="panel-section detail-panel">
+          <div class="section-header">
+            <h2>Asset Details</h2>
+            <button id="delete-button" class="danger" type="button">
+              Delete Selected
+            </button>
+          </div>
+
+          <dl class="detail-list">
+            <div>
+              <dt>Name</dt>
+              <dd id="detail-name">—</dd>
+            </div>
+            <div>
+              <dt>Path</dt>
+              <dd id="detail-path">—</dd>
+            </div>
+            <div>
+              <dt>Size</dt>
+              <dd id="detail-size">—</dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd id="detail-type">—</dd>
+            </div>
+            <div>
+              <dt>SHA-256</dt>
+              <dd id="detail-hash">—</dd>
+            </div>
+          </dl>
+
+          <div class="hash-actions">
+            <input id="hash-file-input" type="file" accept="*/*" />
+            <button id="hash-button" type="button">Hash Selected File</button>
+          </div>
+          <div id="hash-progress" class="hash-progress" aria-live="polite">
+            No hash in progress.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./panel.ts"></script>
+  </body>
+</html>

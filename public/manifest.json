@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "StorageLens",
+  "version": "1.0.0",
+  "description": "OPFS & Cross-Origin Storage DevTools Inspector",
+  "devtools_page": "src/devtools/devtools.html",
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"]
+}
